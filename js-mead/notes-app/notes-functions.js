@@ -14,15 +14,38 @@ const saveNotes = function(notes) {
     localStorage.setItem('notes', JSON.stringify(notes))
 }
 
+// Delete a note from the list
+const deleteNote = function(id) {
+    const noteIndex = notes.findIndex(function(note) {
+        return note.id === id
+    })
+
+    if (noteIndex > -1) {
+        notes.splice(noteIndex, 1)
+    }
+}
+
 // Generate DOM structure for a note
 const generateNoteDOM = function(note) {
-    const noteEl = document.createElement('p')
+    const noteEl = document.createElement('div')
+    const textEl = document.createElement('span')
+    const button = document.createElement('button')
+
+    button.textContent = 'Delete'
+    noteEl.appendChild(button)
+    button.addEventListener('click', function() {
+        deleteNote(note.id)
+        saveNotes(notes)
+        renderNotes(notes, filters)
+    })
 
     if (note.title.length > 0) {
-        noteEl.textContent = note.title
+        textEl.textContent = note.title
     } else {
-        noteEl.textContent = 'Unnamed note'
+        textEl.textContent = 'Unnamed note'
     }
+
+    noteEl.appendChild(textEl)
 
     return noteEl
 }
