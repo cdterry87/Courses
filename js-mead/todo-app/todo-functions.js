@@ -25,6 +25,17 @@ const deleteTodo = function(id) {
     }
 }
 
+// Toggle complete/incomplete todo
+const toggleTodo = function(id) {
+    const todo = todos.find(function(todo) {
+        return todo.id === id
+    })
+
+    if (todo !== 'undefined') {
+        todo.completed = !todo.completed
+    }
+}
+
 // Render application notes
 const renderTodos = function (todos, filters) {
     const filteredTodos = todos.filter(function (todo) {
@@ -51,15 +62,24 @@ const renderTodos = function (todos, filters) {
 const generateTodoDOM = function(todo) {
     const div = document.createElement('div')
     const todoText = document.createElement('span')
+
     const checkbox = document.createElement('input')
     checkbox.setAttribute('type', 'checkbox')
+    checkbox.checked = todo.completed
+    checkbox.addEventListener('change', function() {
+        toggleTodo(todo.id)
+        saveTodos(todos)
+        renderTodos(todos, filters)
+    })
+
     const button = document.createElement('button')
     button.textContent = 'Delete'
     button.addEventListener('click', function() {
         deleteTodo(todo.id)
-        saveTodos()
+        saveTodos(todos)
         renderTodos(todos, filters)
     })
+
 
     div.appendChild(checkbox)
     todoText.textContent = todo.text
