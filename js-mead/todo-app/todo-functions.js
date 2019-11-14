@@ -2,11 +2,7 @@
 const getSavedTodos = () => {
     const todosJSON = localStorage.getItem('todos')
 
-    if (todosJSON !== null && todosJSON !== 'undefined') {
-        return JSON.parse(todosJSON)
-    } else {
-        return []
-    }
+    return (SON !== null && todosJSON !== 'undefined' ? JSON.parse(todosJSON) : [])
 }
 
 // Save notes to localstorage
