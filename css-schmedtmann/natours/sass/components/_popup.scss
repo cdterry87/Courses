@@ -1,0 +1,50 @@
+.popup {
+    background-color: rgba($color-black, .8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 4000;
+
+    &__content {
+        @include hvcenter;
+        width: 75%;
+        background-color: $color-white;
+        box-shadow: 0 2rem 4rem rgba($color-black, .2);
+        border-radius: 3px;
+        display: table;
+        overflow: hidden;
+    }
+
+    &__left,
+    &__right {
+        display: table-cell;
+    }
+
+    &__left {
+        width: 33%;
+    }
+
+    &__right {
+        width: 67%;
+        vertical-align: middle;
+        padding: 3rem 5rem;
+    }
+
+    &__img {
+        display: block;
+        width: 100%;
+    }
+
+    &__text {
+        font-size: 1.4rem;
+        margin-bottom: 4rem;
+        hyphens: auto; // requires a language defined in the HTML
+
+        // Split the paragraph text into two columns with a gape and a line between the columns
+        column-count: 2;
+        column-gap: 5rem; // 1em = 14px
+        column-rule: 1px solid $color-grey-light-2;
+    }
+}
