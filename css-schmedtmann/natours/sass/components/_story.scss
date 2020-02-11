@@ -24,11 +24,17 @@
         width: 15rem;
         height: 15rem;
         float: left;
-        -webkit-shape-outside: circle(50% at 50% 50%); // Make content flow around the image shape
-        shape-outside: circle(50% at 50% 50%); // Make content flow around the image shape
-        -webkit-clip-path: circle(50% at 50% 50%);
-        clip-path: circle(50% at 50% 50%);
+        overflow: hidden;
         transform: translateX(-3rem) skewX(12deg); // Puts space between image shape and text (instead of using margin-right)
+        border-radius: 50%;
+
+        @supports(clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+            -webkit-clip-path: circle(50% at 50% 50%);
+            clip-path: circle(50% at 50% 50%);
+            -webkit-shape-outside: circle(50% at 50% 50%); // Make content flow around the image shape
+            shape-outside: circle(50% at 50% 50%); // Make content flow around the image shape
+            border-radius: none;
+        }
 
         @include respond(phone) {
             transform: translateX(-3rem) skewX(0); // Puts space between image shape and text (instead of using margin-right)

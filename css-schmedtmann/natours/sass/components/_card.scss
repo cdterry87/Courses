@@ -13,6 +13,7 @@
         width: 100%;
         top: 0;
         left: 0;
+        -webkit-backface-visibility: hidden; // hides the backside of an element (for safari)
         backface-visibility: hidden; // hides the backside of an element
         border-radius: 3px;
         overflow: hidden; // prevents image from messing up the rounded corners
