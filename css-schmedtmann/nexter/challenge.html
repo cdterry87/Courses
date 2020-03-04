@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge</title>
+
+    <style>
+        .challenge {
+            width: 1000px;
+            margin: 30px auto;
+
+            display: grid;
+            grid-template-rows: 100px 200px 400px 100px;
+            grid-template-columns: repeat(3, 1fr) 200px;
+            grid-gap: 30px;
+        }
+
+        .challenge > * {
+            background-color: yellowgreen;
+            padding: 20px;
+            font-size: 30px;
+            font-family: sans-serif;
+        }
+
+        .header {
+            grid-column: 1 / -1;
+        }
+
+        .main-content {
+            grid-column: 1 / span 3;
+        }
+
+        .sidebar {
+            grid-row: 2 / span 2;
+            grid-column: 4 / 5;
+        }
+
+        .footer {
+            grid-column: 1 / -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="challenge">
+        <div class="header">
+            header
+        </div>
+
+        <div class="small-box-1">
+            small box 1
+        </div>
+
+        <div class="small-box-2">
+            small box 2
+        </div>
+
+        <div class="small-box-3">
+            small box 3
+        </div>
+
+        <div class="main-content">
+            main content
+        </div>
+
+        <div class="sidebar">
+            sidebar
+        </div>
+
+        <div class="footer">
+            footer
+        </div>
+    </div>
+</body>
+</html>
