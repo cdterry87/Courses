@@ -1,9 +1,11 @@
 <template>
     <div>
         <Header />
-        <div class="row">
-            <div class="col">
-                <router-view />
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <router-view />
+                </div>
             </div>
         </div>
     </div>
@@ -14,6 +16,11 @@
     export default {
         components: {
             Header,
+        },
+        created () {
+            this.$store.dispatch('initStocks');
+
+            console.log(this.$store)
         },
     }
 </script>
