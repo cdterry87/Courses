@@ -11,6 +11,8 @@
                     <router-link to="/stocks" tag="li" activeClass="active"><a>Stocks</a></router-link>
                 </ul>
 
+                <strong class="navbar-text navbar-right">Funds: {{ funds }}</strong>
+
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#">End Day</a></li>
@@ -30,7 +32,11 @@
 
 <script>
     export default {
-        
+        computed: {
+            funds() {
+                return this.$store.getters.funds
+            }
+        },
     }
 </script>
 
