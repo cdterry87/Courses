@@ -42,7 +42,7 @@
 
 <script>
 import { heroWatchers, lifecycleHooks, data } from '../shared';
-import HeroDetail from '@/components/hero-detail';
+import HeroDetail from '@/views/hero-detail';
 
 export default {
   name: 'Heroes',
