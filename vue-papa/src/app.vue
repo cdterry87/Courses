@@ -3,7 +3,7 @@
     <HeaderBar />
     <div class="main-section columns">
       <main class="column">
-        <router-view />
+        <Heroes />
       </main>
     </div>
   </div>
@@ -11,10 +11,11 @@
 
 <script>
 import HeaderBar from '@/components/header-bar';
+import Heroes from '@/components/heroes';
 
 export default {
   name: 'App',
-  components: { HeaderBar },
+  components: { HeaderBar, Heroes },
 };
 </script>
 

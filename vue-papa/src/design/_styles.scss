@@ -114,6 +114,19 @@ header {
       color: $link;
     }
   }
+  h3 {
+    border-left: 16px solid $primary;
+    border-bottom: 2px solid $primary;
+    padding-left: 8px;
+    padding-right: 16px;
+    display: inline-block;
+    text-transform: uppercase;
+    color: #555;
+    letter-spacing: 0px;
+    &:hover {
+      color: $link;
+    }
+  }
   button.button {
     border: 0;
     color: #999;
