@@ -60,8 +60,8 @@
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex';
 import Modal from '@/components/modal';
-import { mapState, mapActions } from 'vuex';
 
 export default {
   name: 'Heroes',
@@ -90,27 +90,17 @@ export default {
     async deleteHero() {
       this.closeModal();
       if (this.heroToDelete) {
-        // dataService.deleteHero(this.heroToDelete);
-        // this.$store.dispatch('deleteHeroAction', this.heroToDelete);
         await this.deleteHeroAction(this.heroToDelete);
       }
       await this.loadHeroes();
     },
     async loadHeroes() {
       this.message = 'getting the heroes, please be patient';
-      // this.heroes = await dataService.getHeroes();
-      // await this.$store.dispatch('getHeroesAction');
       await this.getHeroesAction();
       this.message = '';
     },
   },
   computed: {
-    // these all do the same thing
-    // heroes() {
-    //   return this.$store.state.heroes;
-    // }
-    // ...mapState({ heroes: state => state.heroes }),
-    // ...mapState({ heroes: 'heroes' }),
     ...mapState(['heroes']),
     modalMessage() {
       const name =
