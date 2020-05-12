@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="section content-title-group">
-      <h2 class="title">Edit Hero</h2>
+      <h2 class="title">{{ title }}</h2>
       <div class="card">
         <header class="card-header">
-          <p class="card-header-title">{{ fullName }}</p>
+          <p class="card-header-title">{{ hero.fullName }}</p>
         </header>
         <div class="card-content">
           <div class="content">
@@ -65,11 +65,23 @@ export default {
     };
   },
   async created() {
-    this.hero = await dataService.getHero(this.id);
+    if (this.isAddMode) {
+      this.hero = {
+        id: undefined,
+        firstName: '',
+        lastName: '',
+        description: '',
+      };
+    } else {
+      this.hero = await dataService.getHero(this.id);
+    }
   },
   computed: {
-    fullName() {
-      return this.hero ? `${this.hero.firstName} ${this.hero.lastName}` : '';
+    isAddMode() {
+      return !this.id;
+    },
+    title() {
+      return `${this.isAddMode ? 'Add' : 'Edit'} Hero`;
     },
   },
   methods: {
@@ -77,7 +89,9 @@ export default {
       this.$router.push({ name: 'heroes' });
     },
     async saveHero() {
-      await dataService.updateHero(this.hero);
+      this.hero.id
+        ? await dataService.updateHero(this.hero)
+        : await dataService.addHero(this.hero);
       this.$router.push({ name: 'heroes' });
     },
   },
