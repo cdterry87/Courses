@@ -2,12 +2,12 @@
   "heroes": [
     {
       "id": 10,
-      "firstName": "Ella123",
+      "firstName": "Ella",
       "lastName": "Papa",
       "capeCounter": 1,
       "originDate": "1996-06-06",
       "description": "fashionista",
-      "fullName": "Ella Papa"
+      "fullName": "EllaTest Papa"
     },
     {
       "id": 20,
@@ -24,14 +24,6 @@
       "capeCounter": 2,
       "originDate": "09/01/1999",
       "description": "pen wielder"
-    },
-    {
-      "id": 40,
-      "firstName": "Landon",
-      "lastName": "Papa",
-      "capeCounter": 0,
-      "originDate": "10/01/2000",
-      "description": "arc trooper"
     }
   ],
   "villains": [
