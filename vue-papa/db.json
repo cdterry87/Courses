@@ -2,11 +2,12 @@
   "heroes": [
     {
       "id": 10,
-      "firstName": "Ella",
+      "firstName": "Ella123",
       "lastName": "Papa",
       "capeCounter": 1,
       "originDate": "1996-06-06",
-      "description": "fashionista"
+      "description": "fashionista",
+      "fullName": "Ella Papa"
     },
     {
       "id": 20,
